@@ -1,7 +1,29 @@
+# Swift Package Manager
 .DS_Store
 /.build
 /Packages
 /*.xcodeproj
 Package.pins
 Package.resolved
-.swiftpm
+/.swiftpm
+xcuserdata/
+
+# Credentials files (NEVER commit!)
+*service-account*.json
+*credentials*.json
+*.pem
+
+# Environment files
+.env
+.env.*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+.*.swp
