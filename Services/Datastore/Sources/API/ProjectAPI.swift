@@ -1,7 +1,7 @@
 import AsyncHTTPClient
 import Foundation
 
-public protocol DatastoreProjectAPI {
+public protocol DatastoreProjectAPI: Sendable {
     
     /// Allocates IDs for the given keys, which is useful for referencing an entity before it is inserted
     /// - Parameters:

@@ -10,7 +10,7 @@ import NIO
 import NIOHTTP1
 import Foundation
 
-public protocol StorageNotificationsAPI {
+public protocol StorageNotificationsAPI: Sendable {
     
     /// Permanently deletes a Cloud Pub/Sub notification configuration from a bucket.
     /// - Parameter bucket: The parent bucket of the notification.

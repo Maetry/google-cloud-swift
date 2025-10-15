@@ -9,7 +9,7 @@ import NIO
 import NIOHTTP1
 import Foundation
 
-public protocol ObjectAccessControlsAPI {
+public protocol ObjectAccessControlsAPI: Sendable {
     
     /// Permanently deletes the ACL entry for the specified entity on the specified object.
     /// - Parameter bucket: Name of a bucket.

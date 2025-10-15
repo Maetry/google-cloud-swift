@@ -10,7 +10,7 @@ import Foundation
 import AsyncHTTPClient
 import NIO
 
-public struct GoogleCloudStorageClient {
+public struct GoogleCloudStorageClient: Sendable {
     public var bucketAccessControl: BucketAccessControlAPI
     public var buckets: StorageBucketAPI
     public var channels: ChannelsAPI

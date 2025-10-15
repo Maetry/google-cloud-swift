@@ -1,6 +1,6 @@
 import Core
 
-public enum GoogleCloudTranslationScope: GoogleCloudAPIScope, CaseIterable {
+public enum GoogleCloudTranslationScope: GoogleCloudAPIScope, CaseIterable, Sendable {
     case cloudPlatform
     case cloudTranslation
 

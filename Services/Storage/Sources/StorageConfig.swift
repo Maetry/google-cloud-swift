@@ -8,7 +8,7 @@
 import Core
 import Foundation
 
-public struct GoogleCloudStorageConfiguration: GoogleCloudAPIConfiguration {
+public struct GoogleCloudStorageConfiguration: GoogleCloudAPIConfiguration, Sendable {
     public var scope: [any GoogleCloudAPIScope]
     public let serviceAccount: String
     public let project: String?

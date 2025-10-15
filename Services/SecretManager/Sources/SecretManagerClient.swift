@@ -3,7 +3,7 @@ import Foundation
 import AsyncHTTPClient
 import NIO
 
-public struct GoogleCloudSecretManagerClient {
+public struct GoogleCloudSecretManagerClient: Sendable {
     public var secrets: SecretVersionAPI
     
     let secretManagerRequest: GoogleCloudSecretManagerRequest

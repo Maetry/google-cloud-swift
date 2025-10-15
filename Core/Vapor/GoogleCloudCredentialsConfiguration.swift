@@ -9,7 +9,7 @@ import Foundation
 import Core
 
 /// Configuration for Google Cloud credentials that bridges old API to new CredentialsLoadingStrategy
-public struct GoogleCloudCredentialsConfiguration {
+public struct GoogleCloudCredentialsConfiguration: Sendable {
     public let project: String?
     private let credentialsFile: String?
     

@@ -1,6 +1,6 @@
 import Core
 
-public struct IAMServiceAccountCredentialsConfiguration: GoogleCloudAPIConfiguration {
+public struct IAMServiceAccountCredentialsConfiguration: GoogleCloudAPIConfiguration, Sendable {
     public var scope: [any GoogleCloudAPIScope]
     public let serviceAccount: String
     public let project: String?
@@ -20,7 +20,7 @@ public struct IAMServiceAccountCredentialsConfiguration: GoogleCloudAPIConfigura
     }
 }
 
-public enum GoogleCloudIAMServiceAccountCredentialsScope: GoogleCloudAPIScope {
+public enum GoogleCloudIAMServiceAccountCredentialsScope: GoogleCloudAPIScope, Sendable {
     /// View and manage your data across Google Cloud Platform services
     
     case cloudPlatform

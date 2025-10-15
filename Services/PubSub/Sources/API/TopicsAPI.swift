@@ -2,7 +2,7 @@ import Core
 import AsyncHTTPClient
 import Foundation
 
-public protocol TopicsAPI {
+public protocol TopicsAPI: Sendable {
     /// Gets the configuration of a topic.
     ///
     /// - Parameters:

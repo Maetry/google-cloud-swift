@@ -1,4 +1,4 @@
-// swift-tools-version:5.7
+// swift-tools-version:6.0
 
 import PackageDescription
 
@@ -74,7 +74,7 @@ let package = Package(
     ],
     dependencies: [
         // Core dependencies for Google Cloud services
-        .package(url: "https://github.com/swift-server/async-http-client.git", from: "1.18.0"),
+        .package(url: "https://github.com/swift-server/async-http-client.git", from: "1.29.0"),
         .package(url: "https://github.com/vapor/jwt-kit.git", from: "5.2.0"),
         // Vapor for integration layer (optional)
         .package(url: "https://github.com/vapor/vapor.git", from: "4.117.0"),

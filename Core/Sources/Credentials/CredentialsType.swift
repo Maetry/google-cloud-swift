@@ -18,7 +18,7 @@ public enum ResolvedCredentials {
     case computeEngine(String)
 }
 
-public protocol AccessTokenProvider {
+public protocol AccessTokenProvider: Sendable {
     func getAccessToken() async throws -> String
 }
 

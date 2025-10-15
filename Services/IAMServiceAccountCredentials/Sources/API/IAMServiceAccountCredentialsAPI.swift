@@ -2,7 +2,7 @@ import AsyncHTTPClient
 import Foundation
 import JWTKit
 
-public protocol IAMServiceAccountCredentialsAPI {
+public protocol IAMServiceAccountCredentialsAPI: Sendable {
     func signJWT(_ jwt: JWTPayload, delegates: [String], serviceAccount: String) async throws -> SignJWTResponse
 }
 

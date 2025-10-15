@@ -15,12 +15,12 @@ public enum GoogleCloudSecretManagerError: GoogleCloudError {
     }
 }
 
-public struct SecretManagerAPIError: GoogleCloudError, Codable {
+public struct SecretManagerAPIError: GoogleCloudError, Codable, Sendable {
     /// A container for the error information.
     public var error: SecretManagerAPIErrorBody
 }
 
-public struct SecretManagerAPIErrorBody: Codable {
+public struct SecretManagerAPIErrorBody: Codable, Sendable {
     /// A container for the error details.
     public var status: Status
     /// An HTTP status code value, without the textual description.
@@ -28,7 +28,7 @@ public struct SecretManagerAPIErrorBody: Codable {
     /// Description of the error. Same as `errors.message`.
     public var message: String
     
-    public enum Status: String, RawRepresentable, Codable {
+    public enum Status: String, RawRepresentable, Codable, Sendable {
         case unknownError
         case alreadyExists = "ALREADY_EXISTS"
         case deadlineExceeded = "DEADLINE_EXCEEDED"
@@ -42,7 +42,7 @@ public struct SecretManagerAPIErrorBody: Codable {
     }
 }
 
-public struct SecretManagerError: Codable {
+public struct SecretManagerError: Codable, Sendable {
     /// The scope of the error. Example values include: global, push and usageLimits.
     public var domain: String?
     /// Example values include invalid, invalidParameter, and required.

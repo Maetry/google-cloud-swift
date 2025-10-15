@@ -9,7 +9,7 @@ import NIO
 import NIOHTTP1
 import Foundation
 
-public protocol BucketAccessControlAPI {
+public protocol BucketAccessControlAPI: Sendable {
     /// Permanently deletes the ACL e for the specified entity on the specified [bucket](https://cloud.google.com/storage/docs/json_api/v1/buckets).
     /// - Parameter bucket: Name of a bucket.
     /// - Parameter entity: The entity holding the permission. Can be `user-userId`, `user-emailAddress`, `group-groupId`, `group-emailAddress`, `allUsers`, or `allAuthenticatedUsers`.

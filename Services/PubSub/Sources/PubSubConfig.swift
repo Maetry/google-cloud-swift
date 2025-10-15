@@ -1,6 +1,6 @@
 import Core
 
-public struct GoogleCloudPubSubConfiguration: GoogleCloudAPIConfiguration {
+public struct GoogleCloudPubSubConfiguration: GoogleCloudAPIConfiguration, Sendable {
     public var scope: [any GoogleCloudAPIScope]
     public let serviceAccount: String
     public let project: String?
@@ -19,7 +19,7 @@ public struct GoogleCloudPubSubConfiguration: GoogleCloudAPIConfiguration {
     }
 }
 
-public enum GoogleCloudPubSubScope: GoogleCloudAPIScope {
+public enum GoogleCloudPubSubScope: GoogleCloudAPIScope, Sendable {
     /// View and manage Pub/Sub topics and subscriptions
     case pubsub
     /// See, edit, configure, and delete your Google Cloud Platform data

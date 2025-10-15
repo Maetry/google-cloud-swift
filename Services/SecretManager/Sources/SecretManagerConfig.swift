@@ -1,6 +1,6 @@
 import Core
 
-public struct GoogleCloudSecretManagerConfiguration: GoogleCloudAPIConfiguration {
+public struct GoogleCloudSecretManagerConfiguration: GoogleCloudAPIConfiguration, Sendable {
     public var scope: [any GoogleCloudAPIScope]
     public let serviceAccount: String
     public let project: String?
@@ -19,7 +19,7 @@ public struct GoogleCloudSecretManagerConfiguration: GoogleCloudAPIConfiguration
     }
 }
 
-public enum GoogleCloudSecretManagerScope: GoogleCloudAPIScope {
+public enum GoogleCloudSecretManagerScope: GoogleCloudAPIScope, Sendable {
     case cloudPlatform
     
     public var value: String {

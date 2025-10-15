@@ -42,7 +42,7 @@ public enum OauthRefreshError: GoogleCloudError {
     }
 }
 
-public struct GoogleCloudAPIErrorMain: GoogleCloudError, Codable {
+public struct GoogleCloudAPIErrorMain: GoogleCloudError, Codable, Sendable {
     /// A container for the error information.
     public var error: GoogleCloudAPIErrorBody
     
@@ -51,7 +51,7 @@ public struct GoogleCloudAPIErrorMain: GoogleCloudError, Codable {
     }
 }
 
-public struct GoogleCloudAPIErrorBody: Codable {
+public struct GoogleCloudAPIErrorBody: Codable, Sendable {
     /// A container for the error details.
     public var errors: [GoogleCloudAPIError]
     /// An HTTP status code value, without the textual description.
@@ -66,7 +66,7 @@ public struct GoogleCloudAPIErrorBody: Codable {
     }
 }
 
-public struct GoogleCloudAPIError: Codable {
+public struct GoogleCloudAPIError: Codable, Sendable {
     /// The scope of the error. Example values include: global, push and usageLimits.
     public var domain: String?
     /// Example values include invalid, invalidParameter, and required.
@@ -80,7 +80,7 @@ public struct GoogleCloudAPIError: Codable {
     public var location: String?
 }
 
-public struct GoogleCloudOAuthError: GoogleCloudError, Codable {
+public struct GoogleCloudOAuthError: GoogleCloudError, Codable, Sendable {
     public var error: String
     public var errorDescription: String?
     public var errorUri: String?

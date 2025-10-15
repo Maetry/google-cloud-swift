@@ -1,6 +1,6 @@
 import Core
 
-public struct GoogleCloudTranslationConfiguration: GoogleCloudAPIConfiguration {
+public struct GoogleCloudTranslationConfiguration: GoogleCloudAPIConfiguration, Sendable {
     public var scope: [any GoogleCloudAPIScope]
     public let serviceAccount: String
     public let project: String?

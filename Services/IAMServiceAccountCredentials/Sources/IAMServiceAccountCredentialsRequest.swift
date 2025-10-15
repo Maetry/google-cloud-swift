@@ -3,7 +3,7 @@ import Foundation
 import NIOHTTP1
 import AsyncHTTPClient
 
-struct IAMServiceAccountCredentialsRequest: GoogleCloudAPIClient {
+struct IAMServiceAccountCredentialsRequest: GoogleCloudAPIClient, Sendable {
     let tokenProvider: AccessTokenProvider
     let httpClient: HTTPClient
     let decoder: JSONDecoder

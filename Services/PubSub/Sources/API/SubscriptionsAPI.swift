@@ -9,7 +9,7 @@ import Core
 import AsyncHTTPClient
 import Foundation
 
-public protocol SubscriptionsAPI {
+public protocol SubscriptionsAPI: Sendable {
     /// Gets the configuration details of a subscription.
     ///
     /// - Parameters:

@@ -23,12 +23,12 @@ public enum GoogleCloudStorageError: GoogleCloudError {
 }
 
 /// [Reference](https://cloud.google.com/storage/docs/json_api/v1/status-codes)
-public struct CloudStorageAPIError: GoogleCloudError, Codable {
+public struct CloudStorageAPIError: GoogleCloudError, Codable, Sendable {
     /// A container for the error information.
     public var error: CloudStorageAPIErrorBody
 }
 
-public struct CloudStorageAPIErrorBody: Codable {
+public struct CloudStorageAPIErrorBody: Codable, Sendable {
     /// A container for the error details.
     public var errors: [CloudStorageError]
     /// An HTTP status code value, without the textual description.
@@ -37,7 +37,7 @@ public struct CloudStorageAPIErrorBody: Codable {
     public var message: String
 }
 
-public struct CloudStorageError: Codable {
+public struct CloudStorageError: Codable, Sendable {
     /// The scope of the error. Example values include: global, push and usageLimits.
     public var domain: String?
     /// Example values include invalid, invalidParameter, and required.

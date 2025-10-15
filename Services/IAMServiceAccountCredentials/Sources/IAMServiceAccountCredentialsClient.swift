@@ -2,7 +2,7 @@ import Core
 import Foundation
 import AsyncHTTPClient
 
-public struct IAMServiceAccountCredentialsClient {
+public struct IAMServiceAccountCredentialsClient: Sendable {
     
     public var api: IAMServiceAccountCredentialsAPI
     let request: IAMServiceAccountCredentialsRequest

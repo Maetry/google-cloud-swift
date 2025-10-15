@@ -5,7 +5,7 @@ import NIOFoundationCompat
 import NIOHTTP1
 import AsyncHTTPClient
 
-struct GoogleCloudSecretManagerRequest: GoogleCloudAPIClient {
+struct GoogleCloudSecretManagerRequest: GoogleCloudAPIClient, Sendable {
     let tokenProvider: AccessTokenProvider
     let httpClient: HTTPClient
     let decoder: JSONDecoder

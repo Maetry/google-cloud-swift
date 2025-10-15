@@ -9,7 +9,7 @@ import NIO
 import NIOHTTP1
 import Foundation
 
-public protocol DefaultObjectACLAPI {
+public protocol DefaultObjectACLAPI: Sendable {
     
     /// Permanently deletes the default object ACL entry for the specified entity on the specified bucket.
     /// - Parameter bucket: Name of a bucket.

@@ -16,12 +16,12 @@ public enum GoogleCloudDatastoreError: GoogleCloudError {
 }
 
 /// [Reference](https://cloud.google.com/datastore/docs/concepts/errors)
-public struct CloudDatastoreAPIError: GoogleCloudError, GoogleCloudModel {
+public struct CloudDatastoreAPIError: GoogleCloudError, GoogleCloudModel, Sendable {
     /// A container for the error information.
     public var error: CloudDatastoreAPIErrorBody
 }
 
-public struct CloudDatastoreAPIErrorBody: Codable {
+public struct CloudDatastoreAPIErrorBody: Codable, Sendable {
     /// A container for the error details.
     public var status: Status
     /// An HTTP status code value, without the textual description.
@@ -29,7 +29,7 @@ public struct CloudDatastoreAPIErrorBody: Codable {
     /// Description of the error. Same as `errors.message`.
     public var message: String
     
-    public enum Status: String, RawRepresentable, Codable {
+    public enum Status: String, RawRepresentable, Codable, Sendable {
         case unknownError
         case alreadyExists = "ALREADY_EXISTS"
         case deadlineExceeded = "DEADLINE_EXCEEDED"
@@ -43,7 +43,7 @@ public struct CloudDatastoreAPIErrorBody: Codable {
     }
 }
 
-public struct CloudDatastoreError: Codable {
+public struct CloudDatastoreError: Codable, Sendable {
     /// The scope of the error. Example values include: global, push and usageLimits.
     public var domain: String?
     /// Example values include invalid, invalidParameter, and required.

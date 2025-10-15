@@ -2,7 +2,7 @@ import Core
 import Foundation
 import AsyncHTTPClient
 
-public struct GoogleCloudDatastoreClient {
+public struct GoogleCloudDatastoreClient: Sendable {
     
     public var project: DatastoreProjectAPI
     let datastoreRequest: GoogleCloudDatastoreRequest

@@ -8,7 +8,7 @@
 import Core
 import Foundation
 
-public enum GoogleCloudStorageScope: GoogleCloudAPIScope, CaseIterable {
+public enum GoogleCloudStorageScope: GoogleCloudAPIScope, CaseIterable, Sendable {
     /// Only allows access to read data, including listing buckets.
     case readOnly
     /// Allows access to read and change data, but not metadata like IAM policies.

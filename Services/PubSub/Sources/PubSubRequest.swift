@@ -3,7 +3,7 @@ import Core
 import NIOHTTP1
 import AsyncHTTPClient
 
-struct GoogleCloudPubSubRequest: GoogleCloudAPIClient {
+struct GoogleCloudPubSubRequest: GoogleCloudAPIClient, Sendable {
     let tokenProvider: AccessTokenProvider
     let httpClient: HTTPClient
     let decoder: JSONDecoder

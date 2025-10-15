@@ -2,7 +2,7 @@ import AsyncHTTPClient
 import NIO
 import Foundation
 
-public protocol SecretVersionAPI {
+public protocol SecretVersionAPI: Sendable {
     func access(secret: String, version: String) async throws -> SecretVersionData
     
     func destroy(secret: String, version: String, etag: String?) async throws -> SecretVersion

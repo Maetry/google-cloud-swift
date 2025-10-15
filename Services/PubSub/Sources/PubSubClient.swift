@@ -2,7 +2,7 @@ import Core
 import Foundation
 import AsyncHTTPClient
 
-public struct GoogleCloudPubSubClient {
+public struct GoogleCloudPubSubClient: Sendable {
     public var pubSubTopic: TopicsAPI
     public var pubSubSubscription: SubscriptionsAPI
     let pubSubRequest: GoogleCloudPubSubRequest

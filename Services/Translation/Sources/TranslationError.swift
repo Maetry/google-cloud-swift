@@ -12,12 +12,12 @@ public enum GoogleCloudTranslationError: GoogleCloudError {
     }
 }
 
-public struct TranslationAPIError: GoogleCloudError, Codable {
+public struct TranslationAPIError: GoogleCloudError, Codable, Sendable {
     /// A container for the error information.
     public var error: TranslationAPIErrorBody
 }
 
-public struct TranslationAPIErrorBody: Codable {
+public struct TranslationAPIErrorBody: Codable, Sendable {
     /// A container for the error details.
     public var status: String
     /// An HTTP status code value, without the textual description.
@@ -26,7 +26,7 @@ public struct TranslationAPIErrorBody: Codable {
     public var message: String
 }
 
-public struct TranslationError: Codable {
+public struct TranslationError: Codable, Sendable {
     /// The scope of the error. Example values include: global, push and usageLimits.
     public var domain: String?
     /// Example values include invalid, invalidParameter, and required.

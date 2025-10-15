@@ -16,12 +16,12 @@ public enum GoogleCloudPubSubError: GoogleCloudError {
 }
 
 /// [Reference](https://cloud.google.com/storage/docs/json_api/v1/status-codes)
-public struct PubSubAPIError: GoogleCloudError, GoogleCloudModel {
+public struct PubSubAPIError: GoogleCloudError, GoogleCloudModel, Sendable {
     /// A container for the error information.
     public var error: PubSubAPIErrorBody
 }
 
-public struct PubSubAPIErrorBody: Codable {
+public struct PubSubAPIErrorBody: Codable, Sendable {
     /// A container for the error details.
     public var status: String
     /// An HTTP status code value, without the textual description.
@@ -30,7 +30,7 @@ public struct PubSubAPIErrorBody: Codable {
     public var message: String
 }
 
-public struct PubSubError: Codable {
+public struct PubSubError: Codable, Sendable {
     /// The scope of the error. Example values include: global, push and usageLimits.
     public var domain: String?
     /// Example values include invalid, invalidParameter, and required.

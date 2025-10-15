@@ -1,6 +1,6 @@
 import Core
 
-public struct GoogleCloudDatastoreConfiguration: GoogleCloudAPIConfiguration {
+public struct GoogleCloudDatastoreConfiguration: GoogleCloudAPIConfiguration, Sendable {
     public var scope: [any GoogleCloudAPIScope]
     public let serviceAccount: String
     public let project: String?
@@ -19,7 +19,7 @@ public struct GoogleCloudDatastoreConfiguration: GoogleCloudAPIConfiguration {
     }
 }
 
-public enum GoogleCloudDatastoreScope: GoogleCloudAPIScope {
+public enum GoogleCloudDatastoreScope: GoogleCloudAPIScope, Sendable {
     /// View and manage your Google Cloud Datastore data
     case datastore
     /// View and manage your data across Google Cloud Platform services

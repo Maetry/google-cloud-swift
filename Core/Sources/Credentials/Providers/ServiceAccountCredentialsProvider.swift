@@ -111,7 +111,7 @@ public actor ServiceAccountCredentialsProvider: AccessTokenProvider {
 }
 
 /// Structure of a service account
-public struct ServiceAccountCredentials: Codable {
+public struct ServiceAccountCredentials: Codable, Sendable {
     public let type: String
     public let projectId: String
     public let privateKeyId: String
@@ -125,7 +125,7 @@ public struct ServiceAccountCredentials: Codable {
 }
 
 /// The payload for requesting an OAuth token to make API calls to Google APIs.
-struct ServiceAccountCredentialsJWTPayload: JWTPayload {
+struct ServiceAccountCredentialsJWTPayload: JWTPayload, Sendable {
     /// The email address of the service account.
     var iss: IssuerClaim
     /// A descriptor of the intended target of the assertion. When making an access token request this value is always https://oauth2.googleapis.com/token
@@ -144,7 +144,7 @@ struct ServiceAccountCredentialsJWTPayload: JWTPayload {
     }
 }
 
-struct ServiceAccountCredentialsSelfSignedJWTPayload: JWTPayload {
+struct ServiceAccountCredentialsSelfSignedJWTPayload: JWTPayload, Sendable {
     /// The email address of the service account.
     var iss: IssuerClaim
     /// The expiration time of the assertion, specified as seconds since 00:00:00 UTC, January 1, 1970. This value has a maximum of 1 hour after the issued time.

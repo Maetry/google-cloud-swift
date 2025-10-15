@@ -21,12 +21,12 @@ public enum IAMServiceAccountCredentialsError: GoogleCloudError {
     }
 }
 
-public struct IAMServiceAccountCredentialsAPIError: GoogleCloudError, GoogleCloudModel {
+public struct IAMServiceAccountCredentialsAPIError: GoogleCloudError, GoogleCloudModel, Sendable {
     /// A container for the error information.
     public var error: IAMServiceAccountCredentialsAPIErrorBody
 }
 
-public struct IAMServiceAccountCredentialsAPIErrorBody: Codable {
+public struct IAMServiceAccountCredentialsAPIErrorBody: Codable, Sendable {
     /// A container for the error details.
     public var status: String
     /// An HTTP status code value, without the textual description.

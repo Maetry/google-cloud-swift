@@ -10,7 +10,7 @@ import NIOHTTP1
 import AsyncHTTPClient
 import Foundation
 
-public protocol StorageObjectAPI {
+public protocol StorageObjectAPI: Sendable {
     
     /// Concatenates a list of existing objects into a new object in the same bucket.
     /// - Parameter bucket: Name of the bucket containing the source objects. The destination object is stored in this bucket.

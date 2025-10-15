@@ -20,6 +20,6 @@ public protocol GoogleCloudAPIConfiguration {
 }
 
 /// Protocol for each GoogleCloud API scope.
-public protocol GoogleCloudAPIScope {
+public protocol GoogleCloudAPIScope: Sendable {
     var value: String { get }
 }

@@ -3,7 +3,7 @@ import NIO
 import Core
 import Foundation
 
-public protocol TranslationBasicAPI {
+public protocol TranslationBasicAPI: Sendable {
     func translate(text: String,
                    target: String,
                    format: TranslationFormat,

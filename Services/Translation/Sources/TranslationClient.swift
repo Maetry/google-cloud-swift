@@ -3,7 +3,7 @@ import Foundation
 import AsyncHTTPClient
 import NIO
 
-public struct GoogleCloudTranslationClient {
+public struct GoogleCloudTranslationClient: Sendable {
     public var translation: TranslationBasicAPI
     let translationRequest: GoogleCloudTranslationRequest
 

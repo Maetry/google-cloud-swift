@@ -9,7 +9,7 @@ import NIO
 import NIOHTTP1
 import Foundation
 
-public protocol StorageBucketAPI {
+public protocol StorageBucketAPI: Sendable {
     
     /// Permanently deletes an empty bucket.
     /// - Parameter bucket: Name of a bucket.

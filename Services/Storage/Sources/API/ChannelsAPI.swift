@@ -9,7 +9,7 @@ import NIO
 import NIOHTTP1
 import Foundation
 
-public protocol ChannelsAPI {
+public protocol ChannelsAPI: Sendable {
     
     /// Stop receiving object change notifications through this channel.
     /// - Parameter id: A UUID or similar unique string that identifies this channel.
