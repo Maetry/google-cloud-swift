@@ -39,6 +39,10 @@ let package = Package(
             name: "GoogleCloudIAMServiceAccountCredentials",
             targets: ["IAMServiceAccountCredentials"]
         ),
+        .library(
+            name: "GoogleCloudFirebaseMessaging",
+            targets: ["FirebaseMessaging"]
+        ),
         // Combined library with all services
         .library(
             name: "GoogleCloudKit",
@@ -49,7 +53,8 @@ let package = Package(
                 "SecretManager",
                 "Translation",
                 "PubSub",
-                "IAMServiceAccountCredentials"
+                "IAMServiceAccountCredentials",
+                "FirebaseMessaging"
             ]
         ),
         // Vapor integration (optional) - отдельные продукты для модульности
@@ -71,6 +76,9 @@ let package = Package(
         .library(
             name: "VaporGoogleCloudTranslation",
             targets: ["VaporGoogleCloudCore", "VaporGoogleCloudTranslation"]),
+        .library(
+            name: "VaporGoogleCloudFirebaseMessaging",
+            targets: ["VaporGoogleCloudCore", "VaporGoogleCloudFirebaseMessaging"]),
     ],
     dependencies: [
         // Core dependencies for Google Cloud services
@@ -133,6 +141,13 @@ let package = Package(
             ],
             path: "Services/IAMServiceAccountCredentials/Sources"
         ),
+        .target(
+            name: "FirebaseMessaging",
+            dependencies: [
+                .target(name: "Core")
+            ],
+            path: "Services/FirebaseMessaging/Sources/"
+        ),
         
         // Vapor integration targets (модульные)
         .target(
@@ -188,6 +203,15 @@ let package = Package(
             ],
             path: "Services/Translation/Vapor/"
         ),
+        .target(
+            name: "VaporGoogleCloudFirebaseMessaging",
+            dependencies: [
+                .product(name: "Vapor", package: "vapor"),
+                .target(name: "FirebaseMessaging"),
+                .target(name: "VaporGoogleCloudCore"),
+            ],
+            path: "Services/FirebaseMessaging/Vapor/"
+        ),
         
         // Test targets
         .testTarget(
@@ -225,6 +249,13 @@ let package = Package(
                 .target(name: "PubSub")
             ],
             path: "Tests/PubSubTests/"
+        ),
+        .testTarget(
+            name: "FirebaseMessagingTests",
+            dependencies: [
+                .target(name: "FirebaseMessaging")
+            ],
+            path: "Tests/FirebaseMessagingTests/"
         ),
     ]
 )
