@@ -141,18 +141,20 @@ let message = FirebaseMessage(
 
 ## Интеграция с Vapor
 
-### Настройка в configure.swift
+### Настройка в configure.swift (как в Storage)
 
 ```swift
 import GoogleCloudKit
 
 public func configure(_ app: Application) async throws {
-        // Настройка Firebase Messaging
-        try await configureFirebaseMessaging(
-        app,
-        strategy: .environment,
-        scope: [.messaging]
+    // Настройка Firebase Messaging (стандартный паттерн)
+    app.googleCloud.firebaseMessagingConfiguration = GoogleCloudFirebaseMessagingConfiguration(
+        scope: [.messaging],
+        base: "https://fcm.googleapis.com"
     )
+    
+    // Опционально: предварительная инициализация
+    app.lifecycle.use(GoogleCloudFirebaseMessagingLifecycle())x
 }
 ```
 

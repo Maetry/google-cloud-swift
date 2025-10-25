@@ -13,12 +13,14 @@ struct VaporFirebaseCloudMessageExample {
     
     /// Настройка приложения
     static func configure(_ app: Application) async throws {
-        // Настройка Firebase Messaging
-        try await configureFirebaseMessaging(
-            app,
-            strategy: .environment, // Используем переменные окружения
-            scope: [.messaging]
+        // Настройка Firebase Messaging (как в Storage)
+        app.googleCloud.firebaseMessagingConfiguration = GoogleCloudFirebaseMessagingConfiguration(
+            scope: [.messaging],
+            base: "https://fcm.googleapis.com"
         )
+        
+        // Опционально: предварительная инициализация
+        app.lifecycle.use(GoogleCloudFirebaseMessagingLifecycle())
         
         // Регистрация маршрутов
         try routes(app)
@@ -62,7 +64,8 @@ struct VaporFirebaseCloudMessageExample {
             )
         )
         
-        let response = try await req.firebaseMessaging.messaging.send(
+        let firebase = try await req.googleCloudFirebaseMessaging()
+        let response = try await firebase.messaging.send(
             message: message, 
             to: body.token
         )
@@ -89,7 +92,8 @@ struct VaporFirebaseCloudMessageExample {
             )
         )
         
-        let response = try await req.firebaseMessaging.messaging.send(
+        let messaging = try await req.googleCloudFirebaseMessaging()
+        let response = try await messaging.messaging.send(
             message: message, 
             to: body.token
         )
@@ -115,7 +119,8 @@ struct VaporFirebaseCloudMessageExample {
             )
         )
         
-        let response = try await req.firebaseMessaging.messaging.sendMulticast(
+        let messaging = try await req.googleCloudFirebaseMessaging()
+        let response = try await messaging.messaging.sendMulticast(
             message: message, 
             to: body.tokens
         )
@@ -143,7 +148,8 @@ struct VaporFirebaseCloudMessageExample {
             )
         )
         
-        let response = try await req.firebaseMessaging.messaging.sendToTopic(
+        let messaging = try await req.googleCloudFirebaseMessaging()
+        let response = try await messaging.messaging.sendToTopic(
             message: message, 
             topic: body.topic
         )
@@ -181,7 +187,8 @@ struct VaporFirebaseCloudMessageExample {
             )
         )
         
-        let response = try await req.firebaseMessaging.messaging.send(
+        let messaging = try await req.googleCloudFirebaseMessaging()
+        let response = try await messaging.messaging.send(
             message: message, 
             to: body.token
         )
@@ -222,7 +229,8 @@ struct VaporFirebaseCloudMessageExample {
             )
         )
         
-        let response = try await req.firebaseMessaging.messaging.send(
+        let messaging = try await req.googleCloudFirebaseMessaging()
+        let response = try await messaging.messaging.send(
             message: message, 
             to: body.token
         )
@@ -264,7 +272,8 @@ struct VaporFirebaseCloudMessageExample {
             )
         )
         
-        let response = try await req.firebaseMessaging.messaging.send(
+        let messaging = try await req.googleCloudFirebaseMessaging()
+        let response = try await messaging.messaging.send(
             message: message, 
             to: body.token
         )
