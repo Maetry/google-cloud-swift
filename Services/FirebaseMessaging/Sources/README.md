@@ -37,7 +37,8 @@ let message = FirebaseMessage.simple(
 )
 
 // Отправка
-let response = try await client.messaging.send(message: message, to: "device_token")
+let message = FirebaseMessage.simple("Заголовок", "Текст уведомления", to: "device_token")
+let response = try await client.messaging.send(message)
 print("Message sent: \(response.name ?? "unknown")")
 ```
 
@@ -170,18 +171,13 @@ struct NotificationController: RouteCollection {
     }
     
     func sendNotification(req: Request) async throws -> Response {
-        let message = FirebaseMessage(
-            token: "device_token",
-            notification: FirebaseNotification(
-                title: "Уведомление",
-                body: "Это тестовое уведомление"
-            )
-        )
-        
-        let response = try await req.firebaseMessaging.messaging.send(
-            message: message, 
+        let message = FirebaseMessage.simple(
+            "Уведомление",
+            "Это тестовое уведомление",
             to: "device_token"
         )
+        
+        let response = try await req.firebaseMessaging.messaging.send(message)
         
         return Response(status: .ok, body: .init(string: "Notification sent: \(response.name ?? "unknown")"))
     }
@@ -200,7 +196,7 @@ struct NotificationController: RouteCollection {
 
 ```swift
 do {
-    let response = try await client.messaging.send(message: message, to: token)
+    let response = try await client.messaging.send(message)
     print("Success: \(response.name ?? "unknown")")
 } catch FirebaseMessagingError.invalidToken {
     print("Неверный токен устройства")

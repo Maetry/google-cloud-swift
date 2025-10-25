@@ -29,10 +29,7 @@ struct FirebaseCloudMessageExample {
                                                  to: "YOUR_DEVICE_TOKEN_HERE")
         
         do {
-            let response = try await fcmClient.messaging.send(
-                message: simpleMessage, 
-                to: "YOUR_DEVICE_TOKEN_HERE"
-            )
+            let response = try await fcmClient.messaging.send(simpleMessage)
             print("✅ Уведомление отправлено: \(response.name ?? "unknown")")
         } catch {
             print("❌ Ошибка отправки: \(error)")
@@ -49,10 +46,7 @@ struct FirebaseCloudMessageExample {
         ])
         
         do {
-            let response = try await fcmClient.messaging.send(
-                message: dataMessage, 
-                to: "YOUR_DEVICE_TOKEN_HERE"
-            )
+            let response = try await fcmClient.messaging.send(dataMessage)
             print("✅ Уведомление с данными отправлено: \(response.name ?? "unknown")")
         } catch {
             print("❌ Ошибка отправки: \(error)")
@@ -81,10 +75,7 @@ struct FirebaseCloudMessageExample {
         )
         
         do {
-            let response = try await fcmClient.messaging.send(
-                message: androidMessage, 
-                to: "YOUR_DEVICE_TOKEN_HERE"
-            )
+            let response = try await fcmClient.messaging.send(androidMessage)
             print("✅ Android уведомление отправлено: \(response.name ?? "unknown")")
         } catch {
             print("❌ Ошибка отправки: \(error)")
@@ -116,10 +107,7 @@ struct FirebaseCloudMessageExample {
         )
         
         do {
-            let response = try await fcmClient.messaging.send(
-                message: iosMessage, 
-                to: "YOUR_DEVICE_TOKEN_HERE"
-            )
+            let response = try await fcmClient.messaging.send(iosMessage)
             print("✅ iOS уведомление отправлено: \(response.name ?? "unknown")")
         } catch {
             print("❌ Ошибка отправки: \(error)")
@@ -149,10 +137,7 @@ struct FirebaseCloudMessageExample {
         )
         
         do {
-            let response = try await fcmClient.messaging.send(
-                message: webMessage, 
-                to: "YOUR_WEB_TOKEN_HERE"
-            )
+            let response = try await fcmClient.messaging.send(webMessage)
             print("✅ Web push уведомление отправлено: \(response.name ?? "unknown")")
         } catch {
             print("❌ Ошибка отправки: \(error)")
@@ -175,10 +160,7 @@ struct FirebaseCloudMessageExample {
         )
         
         do {
-            let response = try await fcmClient.messaging.sendMulticast(
-                message: multicastMessage, 
-                to: tokens
-            )
+            let response = try await fcmClient.messaging.send(multicastMessage)
             print("✅ Массовое уведомление отправлено:")
             print("   Успешно: \(response.successCount ?? 0)")
             print("   Неудачно: \(response.failureCount ?? 0)")
@@ -197,10 +179,7 @@ struct FirebaseCloudMessageExample {
         )
         
         do {
-            let response = try await fcmClient.messaging.sendToTopic(
-                message: topicMessage, 
-                topic: "news"
-            )
+            let response = try await fcmClient.messaging.send(topicMessage)
             print("✅ Уведомление на тему отправлено: \(response.name ?? "unknown")")
         } catch {
             print("❌ Ошибка отправки: \(error)")

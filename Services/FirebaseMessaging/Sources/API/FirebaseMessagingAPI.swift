@@ -11,17 +11,8 @@ import NIO
 import NIOFoundationCompat
 
 public protocol FirebaseMessagingAPI: Sendable {
-    /// Отправить сообщение на один токен
-    func send(message: FirebaseMessage, to token: String) async throws -> FirebaseResponse
-    
-    /// Отправить сообщение на несколько токенов
-    func sendMulticast(message: FirebaseMessage, to tokens: [String]) async throws -> FirebaseResponse
-    
-    /// Отправить сообщение на тему
-    func sendToTopic(message: FirebaseMessage, topic: String) async throws -> FirebaseResponse
-    
-    /// Отправить сообщение по условию
-    func sendToCondition(message: FirebaseMessage, condition: String) async throws -> FirebaseResponse
+    /// Отправить сообщение (универсальный метод)
+    func send(_ message: FirebaseMessage) async throws -> FirebaseResponse
 }
 
 public struct GoogleCloudFirebaseMessagingAPI: FirebaseMessagingAPI {
@@ -33,80 +24,9 @@ public struct GoogleCloudFirebaseMessagingAPI: FirebaseMessagingAPI {
         self.endpoint = endpoint
     }
     
-    /// Отправить сообщение на один токен
-    public func send(message: FirebaseMessage, to token: String) async throws -> FirebaseResponse {
-        var messageWithToken = message
-        messageWithToken = FirebaseMessage(
-            token: token,
-            tokens: nil,
-            topic: message.topic,
-            condition: message.condition,
-            data: message.data,
-            notification: message.notification,
-            android: message.android,
-            apns: message.apns,
-            webpush: message.webpush,
-            fcmOptions: message.fcmOptions
-        )
-        
-        return try await sendMessage(messageWithToken)
-    }
-    
-    /// Отправить сообщение на несколько токенов
-    public func sendMulticast(message: FirebaseMessage, to tokens: [String]) async throws -> FirebaseResponse {
-        var messageWithTokens = message
-        messageWithTokens = FirebaseMessage(
-            token: nil,
-            tokens: tokens,
-            topic: message.topic,
-            condition: message.condition,
-            data: message.data,
-            notification: message.notification,
-            android: message.android,
-            apns: message.apns,
-            webpush: message.webpush,
-            fcmOptions: message.fcmOptions
-        )
-        
-        return try await sendMessage(messageWithTokens)
-    }
-    
-    /// Отправить сообщение на тему
-    public func sendToTopic(message: FirebaseMessage, topic: String) async throws -> FirebaseResponse {
-        var messageWithTopic = message
-        messageWithTopic = FirebaseMessage(
-            token: message.token,
-            tokens: message.tokens,
-            topic: topic,
-            condition: message.condition,
-            data: message.data,
-            notification: message.notification,
-            android: message.android,
-            apns: message.apns,
-            webpush: message.webpush,
-            fcmOptions: message.fcmOptions
-        )
-        
-        return try await sendMessage(messageWithTopic)
-    }
-    
-    /// Отправить сообщение по условию
-    public func sendToCondition(message: FirebaseMessage, condition: String) async throws -> FirebaseResponse {
-        var messageWithCondition = message
-        messageWithCondition = FirebaseMessage(
-            token: message.token,
-            tokens: message.tokens,
-            topic: message.topic,
-            condition: condition,
-            data: message.data,
-            notification: message.notification,
-            android: message.android,
-            apns: message.apns,
-            webpush: message.webpush,
-            fcmOptions: message.fcmOptions
-        )
-        
-        return try await sendMessage(messageWithCondition)
+    /// Отправить сообщение (универсальный метод)
+    public func send(_ message: FirebaseMessage) async throws -> FirebaseResponse {
+        return try await sendMessage(message)
     }
     
     /// Внутренний метод для отправки сообщения

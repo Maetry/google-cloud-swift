@@ -65,10 +65,7 @@ struct VaporFirebaseCloudMessageExample {
         )
         
         let firebase = try await req.googleCloudFirebaseMessaging()
-        let response = try await firebase.messaging.send(
-            message: message, 
-            to: body.token
-        )
+        let response = try await firebase.messaging.send(message)
         
         return Response(
             status: .ok,
@@ -93,10 +90,7 @@ struct VaporFirebaseCloudMessageExample {
         )
         
         let messaging = try await req.googleCloudFirebaseMessaging()
-        let response = try await messaging.messaging.send(
-            message: message, 
-            to: body.token
-        )
+        let response = try await messaging.messaging.send(message)
         
         return Response(
             status: .ok,
@@ -188,10 +182,7 @@ struct VaporFirebaseCloudMessageExample {
         )
         
         let messaging = try await req.googleCloudFirebaseMessaging()
-        let response = try await messaging.messaging.send(
-            message: message, 
-            to: body.token
-        )
+        let response = try await messaging.messaging.send(message)
         
         return Response(
             status: .ok,
@@ -230,10 +221,7 @@ struct VaporFirebaseCloudMessageExample {
         )
         
         let messaging = try await req.googleCloudFirebaseMessaging()
-        let response = try await messaging.messaging.send(
-            message: message, 
-            to: body.token
-        )
+        let response = try await messaging.messaging.send(message)
         
         return Response(
             status: .ok,
@@ -273,10 +261,7 @@ struct VaporFirebaseCloudMessageExample {
         )
         
         let messaging = try await req.googleCloudFirebaseMessaging()
-        let response = try await messaging.messaging.send(
-            message: message, 
-            to: body.token
-        )
+        let response = try await messaging.messaging.send(message)
         
         return Response(
             status: .ok,
