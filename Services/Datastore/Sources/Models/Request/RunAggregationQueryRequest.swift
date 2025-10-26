@@ -1,4 +1,4 @@
-import Core
+import CloudCore
 
 struct RunAggregationQueryRequest: GoogleCloudModel {
     

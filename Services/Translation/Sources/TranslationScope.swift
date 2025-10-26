@@ -1,4 +1,4 @@
-import Core
+import CloudCore
 
 public enum GoogleCloudTranslationScope: GoogleCloudAPIScope, CaseIterable, Sendable {
     case cloudPlatform

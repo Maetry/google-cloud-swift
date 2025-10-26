@@ -5,7 +5,7 @@
 //  Created by Susheel Athmakuri on 6/21/21.
 //
 
-import Core
+import CloudCore
 import Foundation
 
 public struct GooglePubSubTopicSubscriptionListResponse: GoogleCloudModel {

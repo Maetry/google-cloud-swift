@@ -1,3 +1,3 @@
-import Core
+import CloudCore
 
 public struct EmptyResponse: GoogleCloudModel {}

@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Core
+import CloudCore
 
 public enum GoogleCloudFirebaseMessagingScope: String, CaseIterable, GoogleCloudAPIScope {
     case messaging = "https://www.googleapis.com/auth/firebase.messaging"

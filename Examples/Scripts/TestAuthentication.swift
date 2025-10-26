@@ -2,7 +2,7 @@
 // Запустите: swift run TestAuth
 
 import Foundation
-import Core
+import CloudCore
 import Storage
 import AsyncHTTPClient
 

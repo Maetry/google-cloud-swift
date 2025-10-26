@@ -12,7 +12,7 @@ let package = Package(
         // Core library
         .library(
             name: "GoogleCloudCore",
-            targets: ["Core"]
+            targets: ["CloudCore"]
         ),
         // Individual service libraries
         .library(
@@ -47,7 +47,7 @@ let package = Package(
         .library(
             name: "GoogleCloudKit",
             targets: [
-                "Core",
+                "CloudCore",
                 "Storage",
                 "Datastore",
                 "SecretManager",
@@ -88,63 +88,63 @@ let package = Package(
         .package(url: "https://github.com/vapor/vapor.git", from: "4.117.0"),
     ],
     targets: [
-        // Core module - contains authentication and shared utilities
+        // CloudCore module - contains authentication and shared utilities
         .target(
-            name: "Core",
+            name: "CloudCore",
             dependencies: [
                 .product(name: "JWTKit", package: "jwt-kit"),
                 .product(name: "AsyncHTTPClient", package: "async-http-client"),
             ],
-            path: "Core/Sources/"
+            path: "CloudCore/Sources/"
         ),
         
         // Service modules
         .target(
             name: "Storage",
             dependencies: [
-                .target(name: "Core")
+                .target(name: "CloudCore")
             ],
             path: "Services/Storage/Sources/"
         ),
         .target(
             name: "Datastore",
             dependencies: [
-                .target(name: "Core")
+                .target(name: "CloudCore")
             ],
             path: "Services/Datastore/Sources/"
         ),
         .target(
             name: "SecretManager",
             dependencies: [
-                .target(name: "Core")
+                .target(name: "CloudCore")
             ],
             path: "Services/SecretManager/Sources"
         ),
         .target(
             name: "Translation",
             dependencies: [
-                .target(name: "Core")
+                .target(name: "CloudCore")
             ],
             path: "Services/Translation/Sources"
         ),
         .target(
             name: "PubSub",
             dependencies: [
-                .target(name: "Core")
+                .target(name: "CloudCore")
             ],
             path: "Services/PubSub/Sources/"
         ),
         .target(
             name: "IAMServiceAccountCredentials",
             dependencies: [
-                .target(name: "Core")
+                .target(name: "CloudCore")
             ],
             path: "Services/IAMServiceAccountCredentials/Sources"
         ),
         .target(
             name: "FirebaseMessaging",
             dependencies: [
-                .target(name: "Core")
+                .target(name: "CloudCore")
             ],
             path: "Services/FirebaseMessaging/Sources/"
         ),
@@ -154,9 +154,9 @@ let package = Package(
             name: "VaporGoogleCloudCore",
             dependencies: [
                 .product(name: "Vapor", package: "vapor"),
-                .target(name: "Core"),
+                .target(name: "CloudCore"),
             ],
-            path: "Core/Vapor/"
+            path: "CloudCore/Vapor/"
         ),
         .target(
             name: "VaporGoogleCloudStorage",
@@ -217,7 +217,7 @@ let package = Package(
         .testTarget(
             name: "CoreTests",
             dependencies: [
-                .target(name: "Core"),
+                .target(name: "CloudCore"),
                 .product(name: "AsyncHTTPClient", package: "async-http-client")
             ],
             path: "Tests/CoreTests/"

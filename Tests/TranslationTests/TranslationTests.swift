@@ -1,6 +1,6 @@
 import XCTest
 @testable import Translation
-import Core
+import CloudCore
 import AsyncHTTPClient
 import NIO
 

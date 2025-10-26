@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Core
+import CloudCore
 
 /// Protocol for each GoogleCloud API configuration.
 public protocol GoogleCloudAPIConfiguration {

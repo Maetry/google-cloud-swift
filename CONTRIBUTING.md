@@ -65,7 +65,7 @@ ModuleName/
 ### Пример нового модуля
 
 ```swift
-import Core
+import CloudCore
 import AsyncHTTPClient
 
 public struct GoogleCloudNewServiceClient {

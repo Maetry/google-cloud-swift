@@ -1,6 +1,6 @@
 // Реальный тест аутентификации с вашими credentials
 import Foundation
-import Core
+import CloudCore
 import Storage
 import AsyncHTTPClient
 

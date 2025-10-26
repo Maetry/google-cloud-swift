@@ -1,4 +1,4 @@
-import Core
+import CloudCore
 
 public struct MutationResult: GoogleCloudModel {
     public init(conflictDetected: Bool? = false, key: Key? = nil, version: String) {

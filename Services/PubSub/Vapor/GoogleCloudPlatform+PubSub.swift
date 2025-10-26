@@ -6,7 +6,7 @@
 //
 
 import Vapor
-import Core
+import CloudCore
 import PubSub
 import AsyncHTTPClient
 

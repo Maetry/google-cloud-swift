@@ -1,4 +1,4 @@
-import Core
+import CloudCore
 
 public struct ReserveIdsRequest: GoogleCloudModel {
     public init(

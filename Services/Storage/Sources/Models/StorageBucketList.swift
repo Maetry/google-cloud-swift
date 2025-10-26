@@ -5,7 +5,7 @@
 //  Created by Andrew Edwards on 4/18/18.
 //
 
-import Core
+import CloudCore
 import Foundation
 
 public struct GoogleCloudStorageBucketList: Codable {

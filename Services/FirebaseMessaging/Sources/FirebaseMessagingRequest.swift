@@ -5,7 +5,7 @@
 //  Created by Assistant on 2025-01-27.
 //
 
-import Core
+import CloudCore
 import Foundation
 import AsyncHTTPClient
 import NIO

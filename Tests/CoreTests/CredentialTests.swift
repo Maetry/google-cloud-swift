@@ -8,7 +8,7 @@
 import Foundation
 import XCTest
 
-@testable import Core
+@testable import CloudCore
 
 final class CredentialTests: XCTestCase {
 //    var checkoutPath: String {

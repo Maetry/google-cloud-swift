@@ -83,7 +83,7 @@ let bucket = "your-bucket-name"  // Вместо "my-app-avatars"
 
 ```swift
 import Foundation
-import Core
+import CloudCore
 import Storage
 import AsyncHTTPClient
 

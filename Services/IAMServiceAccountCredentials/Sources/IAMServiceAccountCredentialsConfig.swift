@@ -1,4 +1,4 @@
-import Core
+import CloudCore
 
 public struct IAMServiceAccountCredentialsConfiguration: GoogleCloudAPIConfiguration, Sendable {
     public var scope: [any GoogleCloudAPIScope]

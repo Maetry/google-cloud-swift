@@ -1,4 +1,4 @@
-import Core
+import CloudCore
 
 public struct RunAggregationQueryResponse: GoogleCloudModel {
     /// A batch of query results (always present).

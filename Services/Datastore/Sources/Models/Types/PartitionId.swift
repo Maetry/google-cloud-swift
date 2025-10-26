@@ -1,4 +1,4 @@
-import Core
+import CloudCore
 
 /// A partition ID identifies a grouping of entities. The grouping is always by project and namespace, however the namespace ID may be empty.
 public struct PartitionId: GoogleCloudModel {

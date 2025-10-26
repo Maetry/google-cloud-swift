@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Core
+import CloudCore
 
 /// Configuration for Google Cloud credentials that bridges old API to new CredentialsLoadingStrategy
 public struct GoogleCloudCredentialsConfiguration: Sendable {

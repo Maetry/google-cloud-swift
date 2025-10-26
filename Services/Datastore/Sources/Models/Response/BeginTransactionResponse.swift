@@ -1,4 +1,4 @@
-import Core
+import CloudCore
 
 public struct BeginTransactionResponse: GoogleCloudModel {
     /// The transaction identifier (always present).

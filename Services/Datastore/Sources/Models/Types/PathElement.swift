@@ -1,4 +1,4 @@
-import Core
+import CloudCore
 
 /// A (kind, ID/name) pair used to construct a key path.
 /// If either name or ID is set, the element is complete. If neither is set, the element is incomplete.

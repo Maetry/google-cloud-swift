@@ -1,4 +1,4 @@
-import Core
+import CloudCore
 
 /// An array value.
 public struct ArrayValue: GoogleCloudModel {

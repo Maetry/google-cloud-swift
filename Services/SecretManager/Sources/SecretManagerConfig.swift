@@ -1,4 +1,4 @@
-import Core
+import CloudCore
 
 public struct GoogleCloudSecretManagerConfiguration: GoogleCloudAPIConfiguration, Sendable {
     public var scope: [any GoogleCloudAPIScope]

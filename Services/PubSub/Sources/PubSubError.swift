@@ -1,4 +1,4 @@
-import Core
+import CloudCore
 import Foundation
 
 public enum GoogleCloudPubSubError: GoogleCloudError {

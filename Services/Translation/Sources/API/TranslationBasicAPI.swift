@@ -1,6 +1,6 @@
 import AsyncHTTPClient
 import NIO
-import Core
+import CloudCore
 import Foundation
 
 public protocol TranslationBasicAPI: Sendable {

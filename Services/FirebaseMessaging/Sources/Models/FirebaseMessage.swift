@@ -9,9 +9,8 @@ import Foundation
 
 /// Основная структура сообщения FCM
 public struct FirebaseMessage: Codable, Sendable {
-    /// Токен устройства или массив токенов
+    /// Токен устройства
     public let token: String?
-    public let tokens: [String]?
     
     /// Тема для отправки
     public let topic: String?
@@ -38,7 +37,6 @@ public struct FirebaseMessage: Codable, Sendable {
     public let fcmOptions: FirebaseFCMOptions?
     
     public init(token: String? = nil,
-                tokens: [String]? = nil,
                 topic: String? = nil,
                 condition: String? = nil,
                 data: [String: String]? = nil,
@@ -48,7 +46,6 @@ public struct FirebaseMessage: Codable, Sendable {
                 webpush: FirebaseWebpushConfig? = nil,
                 fcmOptions: FirebaseFCMOptions? = nil) {
         self.token = token
-        self.tokens = tokens
         self.topic = topic
         self.condition = condition
         self.data = data
@@ -387,15 +384,7 @@ extension FirebaseMessage {
         )
     }
     
-    /// Массовое уведомление
-    public static func multicast(_ title: String, _ body: String, to tokens: [String]) -> FirebaseMessage {
-        FirebaseMessage(
-            tokens: tokens,
-            notification: FirebaseNotification(title: title, body: body)
-        )
-    }
-    
-    /// Уведомление на тему
+    /// Уведомление на тему (вместо multicast используйте topic)
     public static func topic(_ title: String, _ body: String, topic: String) -> FirebaseMessage {
         FirebaseMessage(
             topic: topic,

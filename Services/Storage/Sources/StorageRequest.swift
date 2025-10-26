@@ -5,7 +5,7 @@
 //  Created by Andrew Edwards on 5/19/18.
 //
 
-import Core
+import CloudCore
 import Foundation
 import NIO
 import NIOFoundationCompat
