@@ -46,10 +46,24 @@ public struct GoogleCloudFirebaseMessagingAPI: FirebaseMessagingAPI {
         let responseBody = try await response.body.collect(upTo: 1024 * 1024) // 1MB
         
         guard response.status == .ok else {
-            if let error = try? JSONDecoder().decode(FirebaseError.self, from: Data(buffer: responseBody)) {
-                throw FirebaseMessagingError.unknownError("FCM API Error: \(error.message)")
+            // Создаем декодер с правильной стратегией для snake_case
+            let errorDecoder = JSONDecoder()
+            errorDecoder.keyDecodingStrategy = .convertFromSnakeCase
+            
+            // Сначала пытаемся декодировать полный ответ с ошибкой
+            if let errorResponse = try? errorDecoder.decode(FirebaseErrorResponse.self, from: Data(buffer: responseBody)) {
+                throw FirebaseMessagingError.from(firebaseError: errorResponse.error)
+            }
+            // Если не получилось, пытаемся декодировать только ошибку
+            else if let error = try? errorDecoder.decode(FirebaseError.self, from: Data(buffer: responseBody)) {
+                throw FirebaseMessagingError.from(firebaseError: error)
             } else {
-                throw FirebaseMessagingError.networkError(NSError(domain: "FCM", code: Int(response.status.code), userInfo: [NSLocalizedDescriptionKey: "HTTP \(response.status.code)"]))
+                // Если не удалось декодировать ошибку, выводим сырой ответ для отладки
+                let rawResponse = String(data: Data(buffer: responseBody), encoding: .utf8) ?? "Unable to decode response"
+                throw FirebaseMessagingError.networkError(NSError(domain: "FCM", code: Int(response.status.code), userInfo: [
+                    NSLocalizedDescriptionKey: "HTTP \(response.status.code)",
+                    NSLocalizedFailureReasonErrorKey: "Raw response: \(rawResponse)"
+                ]))
             }
         }
         
